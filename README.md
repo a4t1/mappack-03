@@ -10,7 +10,7 @@ Mix & match fra Destroyed Village e The Hunt
 
 ### Renverse
 
-Sembrerebbe Southern France. E invece...
+Ci si vede da Gaston's!
 
 ### Uboat Restock
 
