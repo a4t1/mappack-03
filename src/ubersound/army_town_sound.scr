@@ -1,0 +1,19 @@
+settiki none
+
+aliascache army_radio_loop sound/radio_tune.wav soundparms 1.5 0.0 1.0 0.0 150 2000 weapon loaded maps "dm moh obj "
+aliascache aagun_snd_fire_left sound/weapons/fire/Flak88Fire1.wav soundparms 1.5 0.0 1.0 0.0 2000 5000 weapon loaded always maps "t1l1 t2l4 obj  "
+aliascache church_bell sound/bell_sound/churchbell.wav soundparms 1.5 0.3 1.1 0.0 1000 8000 weapon loaded maps "obj dm moh "
+aliascache church_bell2 sound/bell_sound/churchbell.wav soundparms 1.5 0.3 1.3 0.0 1000 8000 weapon loaded maps "obj dm moh "
+
+alias dfr_victory_v sound/dialogue/Multiplayer/a/AMdfr_v_01a.wav soundparms 1.2 0.0 1.0 0.0 10000 10000 local streamed subtitle "Good job team!" maps "dm obj"
+alias dfr_objective_o sound/dialogue/Multiplayer/a/AMdfr_o_04a.wav soundparms 1.2 0.0 1.0 0.0 10000 10000 local streamed subtitle "The bomb is in position." maps "dm obj"
+alias dfr_diffused_d sound/dialogue/Multiplayer/a/AMdfr_o_09h.wav soundparms 1.2 0.0 1.0 0.0 10000 10000 local streamed subtitle "Explosive charge has been diffused!" maps "dm obj"
+
+alias den_diffused_d sound/dialogue/Multiplayer/g/GRden_o_09a.wav soundparms 1.2 0.0 1.0 0.0 10000 10000 local streamed subtitle "Explosive charge has been diffused!" maps "dm obj"
+alias den_victory_v sound/dialogue/Multiplayer/g/GRden_v_01a.wav soundparms 1.2 0.0 1.0 0.0 10000 10000 local streamed subtitle "Good job team!" maps "dm obj"
+
+aliascache tree_fall_start sound/mechanics/tree_fall_start1.wav soundparms 1.1 0.4 0.7 0.4 300 8000 item loaded maps "t2 t3l2 obj "
+aliascache tree_fall_end sound/mechanics/tree_fall_end1.wav soundparms 1.1 0.4 0.7 0.4 300 8000 item loaded maps "t2 t3l2 obj "
+aliascache alarm_switch sound/mechanics/Mec_Switch_05.wav soundparms 1.5 0.0 1.0 0.0 800 3000 auto loaded maps "m dm moh obj train"
+
+end

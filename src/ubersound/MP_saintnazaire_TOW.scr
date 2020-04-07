@@ -1,0 +1,17 @@
+// soundparms parameters are: <BaseVolume> <RandVolume> <BasePitch> <randPitch> <minDist> <maxDist> <Channel> <Loaded/Streamed> <Maps>
+
+settiki none
+
+// Airplanes
+alias plane1 sound/vehicle/M1_PlaneBy.wav soundparms 1.5 0.2 1.0 0.3 600 10000 weapon streamed maps "t dm obj "
+alias plane2 sound/vehicle/M1_PlaneBy.wav soundparms 1.5 0.2 1.2 0.3 600 10000 weapon streamed maps "t dm obj "
+alias plane3 sound/vehicle/M1_PlaneBy.wav soundparms 1.5 0.2 0.9 0.2 600 10000 weapon streamed maps "t dm obj "
+alias plane4 sound/vehicle/M1_PlaneBy.wav soundparms 1.5 0.2 0.8 0.2 500 10000 weapon streamed maps "t dm obj "
+
+//Custom Sounds
+aliascache nutcracker sound/nazaire/nutcracker.mp3 soundparms 1.0 0.0 0.0 0.0 500 3000 item loaded maps "dm obj"
+aliascache torture sound/nazaire/torture.mp3 soundparms 1.0 0.0 0.0 0.0 500 3000 item loaded maps "dm obj"
+aliascache totalwar sound/nazaire/totalwar.mp3 soundparms 1.0 0.0 0.0 0.0 500 3000 item loaded maps "dm obj"
+aliascache edelweiss sound/nazaire/edelweiss.mp3 soundparms 2.0 0.0 0.0 0.0 500 3000 item loaded maps "dm obj"
+
+end

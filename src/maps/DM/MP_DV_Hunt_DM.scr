@@ -1,0 +1,575 @@
+// ORIGINAL MAP FILE INFO:
+// - DESTROYED VILLAGE
+// - ARCHITECTURE: NED
+// - SCRIPTING: NED
+
+//  MAP CHANGES BY CTPENOK
+// ( SOME PARTS ARE TAKEN FROM THE HUNT !)
+
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "REAL_WAR 2"
+setcvar "g_obj_alliedtext2" "Destroyed Village"
+setcvar "g_obj_alliedtext3" "The Hunt"
+setcvar "g_obj_axistext1" "Changed by Ctpenok"
+setcvar "g_obj_axistext2" "Remodded by"
+setcvar "g_obj_axistext3" "=STORM="
+
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/dv_hunt.tga"
+
+
+	level waittill prespawn
+
+	//*** Precache Dm Stuff
+	exec global/DMprecache.scr
+
+	exec global/door_locked.scr::lock
+	level.script = maps/DM/MP_DV_Hunt_DM.scr
+	exec global/ambient.scr mohdm2
+	
+	thread messages
+        thread nightcheck
+        thread xtras
+        thread plane
+
+	level waittill spawn
+    
+end
+
+nightcheck:
+
+        setcvar "night" "1"
+        // Above already set to 1 if you wish to change on the fly ,then rem out setcvar
+        while(1)
+        {
+        while((getcvar "night") == "") 
+        {wait 1}
+
+        if(int(getcvar "night") == 1) 
+        {
+        local.player = $player
+        local.player stufftext ("r_fastsky 1")
+
+        //$world farplane 3677
+        $world farplane_color ( 0 0 0 )
+
+        wait 1
+        } 
+        if(int(getcvar "night") == 0) 
+        { 
+
+        local.player = $player
+        local.player stufftext ("r_fastsky 1")
+
+        //$world farplane 3077
+        $world farplane_color ( .022 .015 .031)
+
+        wait 1
+
+        }
+        }
+
+end 
+
+plane:
+
+// Plane 1
+	spawn script_object "targetname" "pl1" "classname" "info_splinepath"
+	$pl1.origin = ( -496 -4390 906)
+	$pl1.angles = ( 20 98 0)
+	$pl1.model = "vehicles/stuka_wing_d.tik"
+
+	spawn script_origin "targetname" "pl2" "classname" "info_splinepath"
+	$pl2.origin = ( -696 -2681 300)
+	$pl2.angles = ( 0 92 0)
+	$pl2.model = "vehicles/stuka_wing_d.tik"   
+	
+	spawn script_origin "targetname" "pl3" "classname" "info_splinepath"
+	$pl3.origin = ( -758 -1698 200)
+	$pl3.angles = ( -15 134 -55)
+	$pl3.model = "vehicles/stuka_wing_d.tik"
+
+	spawn script_origin "targetname" "pl4" "classname" "info_splinepath"
+	$pl4.origin = ( -1317 -1358 200) //360
+	$pl4.angles = ( -15 125 55)
+	$pl4.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl5" "classname" "info_splinepath"
+	$pl5.origin = ( -1681 -649 470)
+	$pl5.angles = ( 0 86 5)
+	$pl5.model = "vehicles/stuka_wing_d.tik"
+
+	spawn script_origin "targetname" "pl6" "classname" "info_splinepath"
+	$pl6.origin = ( -1493 528 252)
+	$pl6.angles = ( 0 85 0)
+	$pl6.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl7" "classname" "info_splinepath"
+	$pl7.origin = ( -1415 1336 509)
+	$pl7.angles = ( -45 99 -35)
+	$pl7.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl8" "classname" "info_splinepath"
+	$pl8.origin = ( -2268 1973 981)
+	$pl8.angles = ( 0 180 -55)
+	$pl8.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl9" "classname" "info_splinepath"
+	$pl9.origin = ( -2919 1238 691)
+	$pl9.angles = ( 25 269 0)
+	$pl9.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl10" "classname" "info_splinepath"
+	$pl10.origin = ( -2915 585 279)
+	$pl10.angles = ( 0 270 -40)
+	$pl10.model = "vehicles/stuka_wing_d.tik"
+
+	spawn script_origin "targetname" "pl11" "classname" "info_splinepath"
+	$pl11.origin = ( -2924 -154 263)
+	$pl11.angles = ( 0 261 -140)
+	$pl11.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl12" "classname" "info_splinepath"
+	$pl12.origin = ( -2989 -1183 299)
+	$pl12.angles = ( 0 263 -240)
+	$pl12.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl13" "classname" "info_splinepath"
+	$pl13.origin = ( -3126 -2266 299)
+	$pl13.angles = ( -30 255 -340)
+	$pl13.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl14" "classname" "info_splinepath"
+	$pl14.origin = ( -3189 -2706 810)
+	$pl14.angles = ( -57 271 -359)
+	$pl14.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_origin "targetname" "pl15" "classname" "info_splinepath"
+	$pl15.origin = ( -3233 -4086 2477)
+	$pl15.angles = ( -57 271 -359)
+	$pl15.model = "vehicles/stuka_wing_d.tik"
+	
+	spawn script_object "targetname" "bomberpath" "classname" "info_splinepath" "target" $pl1 "origin" "-227 -6352 1095" "angles" "5 97 0" "model" "vehicles/stuka_wing_d.tik" "$mdl" "vehicles/stuka_wing_d.tik" "#set" "1" "speed" ".8"
+
+// Plane 2
+	spawn script_object "targetname" "p21" "classname" "info_splinepath"
+	$p21.origin = ( -3840 -2390 805)
+	$p21.angles = ( 0 13 -10)
+	$p21.model = "vehicles/stuka_dsrt_fly.tik"
+
+	spawn script_origin "targetname" "p22" "classname" "info_splinepath"
+	$p22.origin = ( -3186 -2132 805)
+	$p22.angles = ( 0 31 -25)
+	$p22.model = "vehicles/stuka_dsrt_fly.tik"
+	
+	spawn script_origin "targetname" "p23" "classname" "info_splinepath"
+	$p23.origin = ( -2392 -1035 770)
+	$p23.angles = ( 0 89 -10)
+	$p23.model = "vehicles/stuka_dsrt_fly.tik"
+
+	spawn script_origin "targetname" "p24" "classname" "info_splinepath"
+	$p24.origin = ( -2400 -416 770)
+	$p24.angles = ( 0 91 0)
+	$p24.model = "vehicles/stuka_dsrt_fly.tik"
+	
+	spawn script_origin "targetname" "p25" "classname" "info_splinepath"
+	$p25.origin = ( -2873 1362 678)
+	$p25.angles = ( -40 106 -45)
+	$p25.model = "vehicles/stuka_dsrt_fly.tik"
+
+	spawn script_origin "targetname" "p26" "classname" "info_splinepath"
+	$p26.origin = ( -5049 3214 1340)
+	$p26.angles = ( -30 155 -40)
+	$p26.model = "vehicles/stuka_dsrt_fly.tik"
+
+	spawn script_object "targetname" "bomberpath" "classname" "info_splinepath" "target" $p21 "origin" "-6213 -2876 924" "angles" "0 13 0" "model" "vehicles/stuka_dsrt_fly.tik" "$mdl" "vehicles/stuka_dsrt_fly.tik" "#set" "2" "speed" ".8"
+
+// Plane 3
+	spawn script_object "targetname" "p31a" "classname" "info_splinepath"
+	$p31a.origin = (940 -1400 750)
+	$p31a.angles = ( 0 -177 35)
+	$p31a.model = "vehicles/stuka_wing_d2.tik"
+
+	spawn script_object "targetname" "p31" "classname" "info_splinepath"
+	$p31.origin = ( -876 -2664 115) // -876 -2664 152
+	$p31.angles = ( 0 -176 0)//-180
+	$p31.model = "vehicles/stuka_wing_d2.tik"
+
+	spawn script_origin "targetname" "p32" "classname" "info_splinepath"
+	$p32.origin = ( -2376 -2664 110)// 
+	$p32.angles = ( 0 -179 0)
+	$p32.model = "vehicles/stuka_wing_d2.tik"
+
+	spawn script_origin "targetname" "p33" "classname" "info_splinepath"
+	$p33.origin = ( -4524 -2664 900)// 
+	$p33.angles = ( -10 175 180)
+	$p33.model = "vehicles/stuka_wing_d2.tik"
+	
+
+	spawn script_object "targetname" "bomberpath" "classname" "info_splinepath" "target" $p31a "origin" "1321 -1103 615" "angles" "0 -145 0" "model" "vehicles/stuka_wing_d2.tik" "$mdl" "vehicles/stuka_wing_d2.tik" "#set" "3" "speed" ".8"
+
+
+
+// Plane 4
+	spawn script_object "targetname" "p51" "classname" "info_splinepath"
+	$p51.origin = (43 -4142 1050)
+	$p51.angles = ( 0 117 0)
+	$p51.model = "vehicles/fockwulffly.tik"
+
+	spawn script_origin "targetname" "p52" "classname" "info_splinepath"
+	$p52.origin = ( -410 -3187 380)
+	$p52.angles = ( 0 114 0)
+	$p52.model = "vehicles/fockwulffly.tik"
+	
+	spawn script_origin "targetname" "p53" "classname" "info_splinepath"
+	$p53.origin = ( -747 -2378 350)
+	$p53.angles = ( 0 112 0)
+	$p53.model = "vehicles/fockwulffly.tik"
+
+	spawn script_origin "targetname" "p54" "classname" "info_splinepath"
+	$p54.origin = ( -1127 -1498 275)
+	$p54.angles = ( 0 112 -130) //15
+	$p54.model = "vehicles/fockwulffly.tik"
+	
+	spawn script_origin "targetname" "p55" "classname" "info_splinepath"
+	$p55.origin = ( -1541 -1048 250)
+	$p55.angles = ( 0 95 60)
+	$p55.model = "vehicles/fockwulffly.tik"
+
+	spawn script_origin "targetname" "p56" "classname" "info_splinepath"
+	$p56.origin = ( -1560 -161 230)
+	$p56.angles = ( 0 85 140)
+	$p56.model = "vehicles/fockwulffly.tik"
+
+	spawn script_origin "targetname" "p57" "classname" "info_splinepath"
+	$p57.origin = ( -1488 796 453)
+	$p57.angles = ( 0 80 290)
+	$p57.model = "vehicles/fockwulffly.tik"
+
+	spawn script_origin "targetname" "p58" "classname" "info_splinepath"
+	$p58.origin = ( -1229 2378 744)
+	$p58.angles = ( 0 80 360)
+	$p58.model = "vehicles/fockwulffly.tik"
+
+	spawn script_object "targetname" "bomberpath" "classname" "info_splinepath" "target" $p51 "origin" "40 -4100 1061" "angles" "0 117 0" "model" "vehicles/fockwulffly.tik" "$mdl" "vehicles/fockwulffly.tik" "#set" "4" "speed" ".8"
+
+
+
+// Speaker
+	spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" "-1681 -649 470" "sound" "stuka_crash_street" "#set" "1"
+
+	spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" "-3126 -2266 299" "sound" "stuka_by3" "#set" "1"
+	$bomberspeaker[2].sound = "stuka_crash_street" 
+
+	spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" "-3186 -2132 805" "sound" "stuka_by3" "#set" "2"
+	$bomberspeaker[3].sound = "stuka_crash_street" //stuka_by2
+
+	spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" "-1004 -2696 300" "sound" "stuka_by3" "#set" "3"
+	$bomberspeaker[3].sound = "stuka_by1" 
+
+	spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" $p44.origin "sound" "stuka_by3" "#set" "4"
+	$bomberspeaker[4].sound = "stuka_by4" //stuka_by2
+
+spawn script_object "targetname" "bomberspeaker" "classname" "sound_speaker" "origin" $p52.origin "sound" "stuka_by3" "#set" "4"
+	$bomberspeaker[4].sound = "stuka_by4"
+
+
+
+
+// Plane 2 Bomb	1
+	spawn script_origin "targetname" "bo211" "classname" "info_splinepath"
+	$bo211.origin = ( -3776 -2187 601)
+	$bo211.model = "ammo/us_bomb.tik"
+
+	spawn script_origin "targetname" "bo212" "classname" "info_splinepath"
+	$bo212.origin = ( -3584 -2099 117)
+	$bo212.model = "ammo/us_bomb.tik"
+
+	spawn script_object "targetname" "bomber" "classname" "info_splinepath" "origin" $p21.origin "#set" "2" "model" "ammo/us_bomb.tik" "mdl" "ammo/us_bomb.tik" "target" $bo211
+	
+	$bo211.target = $bo212
+
+// Plane 2 Bomb	2
+	spawn script_origin "targetname" "bo221" "classname" "info_splinepath"
+	$bo221.origin = ( -2388 -813 640)
+	$bo221.model = "ammo/us_bomb.tik"
+
+	spawn script_origin "targetname" "bo222" "classname" "info_splinepath"
+	$bo222.origin = ( -2398 -710 338)
+	$bo222.model = "ammo/us_bomb.tik"
+
+	spawn script_object "targetname" "bomber" "classname" "info_splinepath" "origin" $p23.origin "#set" "2" "model" "ammo/us_bomb.tik" "mdl" "ammo/us_bomb.tik" "target" $bo221
+	
+	$bo221.target = $bo222
+
+
+// Plane 3 Bomb	3
+	spawn script_origin "targetname" "bo331" "classname" "info_splinepath"
+	$bo331.origin = ( 264 -1342 228)
+	$bo331.model = "ammo/us_bomb.tik"
+
+	spawn script_origin "targetname" "bo332" "classname" "info_splinepath"
+	$bo332.origin = ( 442 -1342 20)
+	$bo332.model = "ammo/us_bomb.tik"
+
+	spawn script_object "targetname" "bomber" "classname" "info_splinepath" "origin" $p34.origin "#set" "3" "model" "ammo/us_bomb.tik" "mdl" "ammo/us_bomb.tik" "target" $bo331
+	
+	$bo331.target = $bo332
+
+ 	             local.fix1 = spawn script_model
+  	             local.fix1 model "vehicles/stukadesrt_d.tik"
+	             local.fix1.origin = ( -561 -2373 -63)
+	             local.fix1.angle = 64
+                           local.fix1.scale = 1
+                           local.fix1 solid
+
+
+
+// Plane 4 Bomb	1
+	spawn script_origin "targetname" "bo411" "classname" "info_splinepath"
+	$bo411.origin = ( -528 1015 180)
+	$bo411.model = "ammo/us_bomb.tik"
+
+	spawn script_origin "targetname" "bo412" "classname" "info_splinepath"
+	$bo412.origin = ( -680 1038 110)
+	$bo412.model = "ammo/us_bomb.tik"
+
+	spawn script_object "targetname" "bomber" "classname" "info_splinepath" "origin" $p42.origin "#set" "4" "model" "ammo/us_bomb.tik" "mdl" "ammo/us_bomb.tik" "target" $bo411
+	
+	$bo411.target = $bo412
+
+
+// Plane 4 Bomb	3
+
+	spawn script_origin "targetname" "bo432" "classname" "info_splinepath"
+	$bo432.origin = ( -2965 239 170)
+	$bo432.model = "ammo/us_bomb.tik"
+
+	spawn script_object "targetname" "bomber" "classname" "info_splinepath" "origin" $p45.origin "#set" "4" "model" "ammo/us_bomb.tik" "mdl" "ammo/us_bomb.tik" "target" $bo431
+	
+	$bo431.target = $bo432
+
+// connect up plane path
+	$pl1.target = $pl2
+	$pl2.target = $pl3
+	$pl3.target = $pl4
+	$pl4.target = $pl5
+	$pl5.target = $pl6
+	$pl6.target = $pl7
+	$pl7.target = $pl8
+	$pl8.target = $pl9
+	$pl9.target = $pl10
+	$pl10.target = $pl11
+	$pl11.target = $pl12
+	$pl12.target = $pl13
+	$pl13.target = $pl14
+	$pl14.target = $pl15
+
+	$p21.target = $p22
+	$p22.target = $p23
+	$p23.target = $p24
+	$p24.target = $p25
+	$p25.target = $p26
+
+	$p31a.target = $p31
+	$p31.target = $p32
+	$p32.target = $p33
+
+	$p41.target = $p42
+	$p42.target = $p43
+	$p43.target = $p44
+	$p44.target = $p45
+	$p45.target = $p46
+
+	$p51.target = $p52
+	$p52.target = $p53
+	$p53.target = $p54
+	$p54.target = $p55
+	$p55.target = $p56
+	$p56.target = $p57
+	$p57.target = $p58
+
+
+	exec global/bomber.scr
+
+	wait 100
+	
+	thread global/bomber.scr::bomb 1
+	wait 20
+	iprintlnbold "Allied forces have called in air support"
+	local.order = randomint(2)
+	if (local.order == 1)
+	{
+		ord1agn:
+		local.planewait = randomint(100) + 20
+		wait local.planewait
+		thread global/bomber.scr::bomb 2
+		local.planewait = randomint(100) + 20
+		wait local.planewait
+		thread global/bomber.scr::bomb 3
+		local.planewait = randomint(100) + 20
+		wait local.planewait
+		thread global/bomber.scr::bomb 4
+		local.planewait = randomint(100) + 20
+		wait local.planewait
+		thread global/bomber.scr::bomb 2
+		goto ord1agn
+	}
+	else
+	{
+		if (local.order == 2)
+		{
+			ord2agn:
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 3
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 2
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 4
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 3
+			goto ord2agn
+		}
+		else
+		{
+			ord3agn:
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 4
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 2
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 3
+			local.planewait = randomint(100) + 20
+			wait local.planewait
+			thread global/bomber.scr::bomb 4
+			goto ord3agn
+
+
+		}
+	}
+end
+
+xtras:
+	spawn static/tree_birch "targetname" "xtra9"
+	$xtra9.origin = ( -2028.97 1411.09 13.70)
+	$xtra9.angles = (0 167.44 0)
+
+	spawn static/tree_juniper "targetname" "xtra10"
+	$xtra10.origin = ( -2061.05 389.93 -32.74)
+	$xtra10.angles = (0 167.44 0)
+
+	spawn static/tree_oak "targetname" "xtra11"
+	$xtra11.origin = ( -3284.06 544.49 18.75)
+	$xtra11.angles = (0 34.67 0)
+
+	spawn static/tree_birch "targetname" "xtra12"
+	$xtra12.origin = ( -965.60 -3584.52 -221.08)
+	$xtra12.angles = (0 167.44 0)
+
+	local.stuka_d = spawn models/vehicles/stuka_d.tik
+	local.stuka_d.origin = ( -2600 1430 340 )
+	local.stuka_d.angle = 90
+	local.stuka_d solid
+	local.stuka_d immune bullet
+	local.stuka_d immune fast_bullet
+	local.stuka_d immune bash
+	local.stuka_d immune mg
+	local.stuka_d immune explosion
+
+		local.fire = spawn script_model
+		local.fire model "emitters/fireandsmoke.tik"
+		local.fire.origin = ( -2600 1530 390)
+		local.fire.angles = (0 -176 0)
+
+		local.fire = spawn script_model
+		local.fire model "emitters/fireandsmoke.tik"
+		local.fire.origin = ( -2600 1460 380)
+		local.fire.angles = (0 200 0)
+
+	local.fix1 = spawn script_model
+	local.fix1 model "static/1_3_bridge.tik"
+	local.fix1.origin = ( 1450 -700 280)
+	local.fix1.angle = 90
+	local.fix1.scale = 1.5
+	local.fix1 notsolid
+
+	local.vehicle = spawn script_model
+	local.vehicle model "vehicles/panzer_iv_d.tik"
+	local.vehicle.origin = ( -3000 -1925 -72)
+	local.vehicle.angles = ( -7 88 -5)
+	local.vehicle solid
+
+        local.fix2 = spawn script_model
+        local.fix2 model "static/indycrate.tik"
+        local.fix2.origin = ( -2329.31 738.08 480.13 ) 
+        local.fix2.angles = ( 0 0 0 )
+        local.fix2.scale = 1.0
+
+        local.fix3 = spawn script_model
+        local.fix3 model "static/indycrate.tik"
+        local.fix3.origin = ( -2339.89 629.83 480.13 ) 
+        local.fix3.angles = ( 0 0 0 )
+        local.fix3.scale = 1.0
+
+        local.fix4 = spawn script_model
+        local.fix4 model "emitters/fireandsmoke.tik"
+        local.fix4.origin = ( -6.73 -933.71 -71.69 ) 
+        local.fix4.angles = ( 0 0 0 )
+        local.fix4.scale = 3.0	
+        local.fix4 ghost
+
+//light
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1623.126 -2920.874 -15.875 ) angle ( 127.776 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1703.395 -2928.890 -15.875 ) angle ( 89.923 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -2128.875 -2187.491 0.125 ) angle ( 271.368 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1895.373 -2196.525 0.125 ) angle ( 264.853 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1445.028 -977.199 -26.472 ) angle ( 92.697 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1442.786 -818.637 -27.589 ) angle ( 265.402 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1444.816 -703.667 -26.074 ) angle ( 267.671 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1440.096 -587.986 -24.525 ) angle ( 267.671 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1440.828 -463.249 -22.854 ) angle ( 266.254 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1442.103 -348.167 -21.313 ) angle ( 268.143 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1441.591 -232.666 -19.766 ) angle ( 267.578 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1443.928 -118.699 -18.240 ) angle ( 265.688 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1445.759 18.807 -16.371 ) angle ( 266.440 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1444.561 167.200 -14.740 ) angle ( 89.154 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1740.311 177.079 0.125 ) angle ( 90.099 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1751.737 21.687 0.125 ) angle ( 354.749 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1739.016 -121.509 0.125 ) angle ( 347.574 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1739.016 -121.509 0.125 ) angle ( 347.574 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1748.499 -233.607 0.125 ) angle ( 352.579 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1753.678 -348.420 0.125 ) angle ( 359.374 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1750.402 -441.456 0.125 ) angle ( 352.952 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1747.791 -823.482 0.125 ) angle ( 0.791 )
+local.fix1 = spawn script_model model models/static/lightpost_globe.tik origin ( -1751.686 -974.655 0.125 ) angle ( 357.204 )
+
+end
+
+//-----------------------------------------------------
+//MESSAGES
+//-----------------------------------------------------
+
+messages:
+  while(1)
+  {
+  iprintln "REAL_WAR 2"
+  wait 20
+  iprintln "ReModded By"
+  wait 20
+  iprintln "=STORM="
+  wait 20
+  iprintln "WELCOME"
+  wait 20
+  }
+end
+
+//-----------------------------------------------------------------------------
+

@@ -1,0 +1,2 @@
+aliascache ts_chant sound/amb_sme/chant.wav soundparms 3.0 0.0 1.00 0.00 400 1500 auto loaded maps "dm obj"
+// soundparms parameters are: <BaseVolume> <RandVolume> <BasePitch> <randPitch> <minDist> <maxDist> <Channel> <Loaded/Streamed> <Maps>
