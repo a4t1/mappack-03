@@ -1,0 +1,72 @@
+// Remagen Again 
+// ARCHITECTURE: MMG/Dodgerman
+// SCRIPTING: Dodgerman
+
+main:
+
+setcvar "g_obj_alliedtext1" "Remagen Again TDM" 
+setcvar "g_obj_alliedtext2" "By"
+setcvar "g_obj_alliedtext3" "MMG Inc"
+
+setcvar "g_obj_axistext1" ""
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" "TDM Version"
+
+setcvar "g_scoreboardpic" "remagenagain.tga"
+
+
+	// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+
+	level waittill prespawn
+
+		$world farplane 5000
+		$world farplane_color (.333 .333 .333)
+	
+		//*** Precache Dm Stuff
+		exec global/DMprecache.scr
+		exec global/door_locked.scr::lock
+		
+		
+		level.script = maps/dm/dogscastleTDM.scr
+		exec global/ambient.scr m1l2a
+
+		thread fifisetup
+
+	
+	level waittill spawn
+
+end
+
+//-----------------------------------------------------------------------------
+
+roundbasedthread:
+
+	// Can specify different scoreboard messages for round based games here.
+
+	level waitTill prespawn
+
+	level waittill spawn
+
+		// set the parameters for this round based match
+		level.dmrespawning = 1 // 1 or 0
+		level.dmroundlimit = 8 // round time limit in minutes
+		level.clockside = kills // set to axis, allies, kills, or draw
+
+end	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
