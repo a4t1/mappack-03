@@ -1,6 +1,6 @@
 {
   "name": "@a4t1/mappack-03",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Third MOHAA map pack of A4T1",
   "main": "index.js",
   "scripts": {
