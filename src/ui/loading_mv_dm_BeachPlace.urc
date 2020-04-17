@@ -1,0 +1,22 @@
+menu "dm/mv_dm_BeachPlace" 640 481 NONE 0
+bgcolor 0 0 0 1 
+borderstyle NONE
+bgfill 0 0 0 1 
+fullscreen 1
+//vidmode 3
+//fadein 0.5
+virtualres 1
+postinclude ui/loading_mv_dm_BeachPlace.txt
+
+resource
+Label
+{
+name "Default"
+rect 0 0 640 481
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 1.00 1.00 1.00 0.00
+borderstyle "NONE"
+shader "textures/mohmenu/dmloading/beachplace.jpg"
+}
+
+end.

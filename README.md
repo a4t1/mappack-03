@@ -19,3 +19,7 @@ Una strage annunciata
 ### Remagen Again
 
 Finalmente il campanile!
+
+### Beach Place
+
+Medal va in vacanza ai Caraibi

@@ -1,0 +1,80 @@
+menu "" 640 480 NONE 1
+
+resource
+Label
+{
+name "Default"
+rect 0 0 640 480
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.50 0.50 0.50 0.00
+borderstyle "NONE"
+shader "textures/mohmenu/dmloading/beachplace.jpg"
+}
+resource
+Label
+{
+name "loadingbar"
+rect 194 460 252 8
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "NONE"
+linkcvar "loadingbar"
+statbar horizontal 0 1
+shader "textures/mohmenu/loadingbar"
+}
+resource
+Label
+{
+name "loadingbar_border"
+rect 192 456 256 16
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "NONE"
+shader "textures/mohmenu/loadingbar_border"
+}
+resource
+Label
+{
+title ""
+name "Default"
+rect 10 08 150 32
+fgcolor 1.00 0.10 0.10 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "RAISED"
+font facfont-20
+}
+resource
+Label
+{
+title ""
+name "Default"
+rect 230 08 150 32
+fgcolor 1.00 0.10 0.10 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "RAISED"
+font facfont-20
+}
+resource
+Label
+{
+title ""
+name "Default"
+rect 460 08 150 32
+fgcolor 1.00 0.10 0.10 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "RAISED"
+font facfont-20
+}
+resource
+Label
+{
+title "Beach Place"
+name "Default"
+rect 72 408 496 32
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "RAISED"
+font facfont-20
+
+}
+end.

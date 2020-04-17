@@ -1,0 +1,27 @@
+
+main:
+
+
+	$world farplane 200000
+	$world farplane_color 1 1 1
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" ""
+setcvar "g_obj_alliedtext2" "Beach Place"
+setcvar "g_obj_alliedtext3" ""
+setcvar "g_obj_axistext1" ""
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+setcvar "g_scoreboardpic" "none"
+
+level waittill prespawn
+
+exec global/DMprecache.scr
+
+level.script = "maps/dm/mv_dm_beachplace.scr"
+exec global/ambient.scr beachplace
+
+level waittill spawn
+
+end

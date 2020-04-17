@@ -1,0 +1,10 @@
+path sound/amb_stereo
+
+normal Amb_M5_Trees.mp3
+
+!normal volume 1
+!normal loop
+
+
+
+Amb_M5_Field
